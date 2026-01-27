@@ -1,4 +1,4 @@
-from llms.factor import get_openai_model_unified
+from llms.factory import get_openai_model_unified
 
 # Get OpenAI chat model from unified factory
 llm_openai = get_openai_model_unified()

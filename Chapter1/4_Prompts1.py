@@ -1,4 +1,4 @@
-from llms.factor import get_openai_model_direct
+from llms.factory import get_openai_model_direct
 from langchain_core.prompts import PromptTemplate
 
 # Get OpenAI chat model from factory
