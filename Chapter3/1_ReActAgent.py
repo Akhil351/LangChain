@@ -63,7 +63,28 @@ agent = create_agent(
 
 # ---------------- ReAct Agent Invoke  ----------------
 result = agent.invoke(
-    {"messages": [{"role": "user", "content": "AI is transforming the world. Can you provide me with the latest news about AI advancements? Also, send an email to notify my team about these advancements."}]}
+    {
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a ReAct agent that must decide when to use tools.\n\n"
+                    "Tool usage rules:\n"
+                    "1. Use DuckDuckGoSearchRun for any request involving latest, current, or real-time information.\n"
+                    "2. Use WikipediaQueryRun for general factual or background knowledge.\n"
+                    "3. ALWAYS use enterprise_tool when the user asks to send, notify, email, or inform a team or person.\n"
+                )
+            },
+            {
+                "role": "user",
+                "content": (
+                    "AI is transforming the world. "
+                    "Can you provide me with the latest news about AI advancements? "
+                    "Also, send an email to notify my team about these advancements."
+                )
+            }
+        ]
+    }
 )
 
 final_message = result["messages"][-1]

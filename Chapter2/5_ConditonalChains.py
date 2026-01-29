@@ -1,5 +1,5 @@
 from llms.factory import get_openai_model_direct
-from model.schemas import movie_review_schema
+from models.schemas import MovieReviewSchema
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda, RunnableBranch
@@ -17,12 +17,12 @@ prompt_template = ChatPromptTemplate.from_messages([
 llm_openai = get_openai_model_direct()
 
 # Structured output (Pydantic)
-llm_structured = llm_openai.with_structured_output(movie_review_schema)
+llm_structured = llm_openai.with_structured_output(MovieReviewSchema)
 
 
 # ---------------- Task 3: Extract sentiment as string ----------------
 
-def extract_sentiment(result: movie_review_schema) -> str:
+def extract_sentiment(result: MovieReviewSchema) -> str:
     return result.model_dump()["movie_summary_flag"]
 
 extract_sentiment_runnable = RunnableLambda(extract_sentiment)
