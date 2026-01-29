@@ -122,13 +122,13 @@ Navigate to any chapter and run the examples:
 
 ```bash
 # Chapter 1 - Basic chat interaction
-python Chapter1/1_ChatOpenAI.py
+python -m Chapter1/1_ChatOpenAI
 
 # Chapter 2 - Chain composition
-python Chapter2/1_FirstChain.py
+python -m Chapter2/1_FirstChain
 
 # Chapter 3 - ReAct agent with tools
-python Chapter3/1_ReActAgent.py
+python -m Chapter3/1_ReActAgent
 ```
 
 ### Using the LLM Factory
@@ -236,3 +236,4 @@ If you have questions or run into issues:
 **Happy Learning! 🚀**
 
 Built with ❤️ using LangChain and OpenAI
+
